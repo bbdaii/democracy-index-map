@@ -1,0 +1,762 @@
+[
+    {
+        "Entity": "Afghanistan",
+        "Country": "阿富汗"
+    },
+    {
+        "Entity": "Africa",
+        "Country": "非洲"
+    },
+    {
+        "Entity": "Albania",
+        "Country": "阿爾巴尼亞"
+    },
+    {
+        "Entity": "Algeria",
+        "Country": "阿爾及利亞"
+    },
+    {
+        "Entity": "Angola",
+        "Country": "安哥拉"
+    },
+    {
+        "Entity": "Argentina",
+        "Country": "阿根廷"
+    },
+    {
+        "Entity": "Armenia",
+        "Country": "亞美尼亞"
+    },
+    {
+        "Entity": "Asia",
+        "Country": "亞洲"
+    },
+    {
+        "Entity": "Australia",
+        "Country": "澳大利亞"
+    },
+    {
+        "Entity": "Austria",
+        "Country": "奧地利"
+    },
+    {
+        "Entity": "Azerbaijan",
+        "Country": "亞塞拜然"
+    },
+    {
+        "Entity": "Bahrain",
+        "Country": "巴林"
+    },
+    {
+        "Entity": "Bangladesh",
+        "Country": "孟加拉"
+    },
+    {
+        "Entity": "Belarus",
+        "Country": "白俄羅斯"
+    },
+    {
+        "Entity": "Belgium",
+        "Country": "比利時"
+    },
+    {
+        "Entity": "Benin",
+        "Country": "貝南"
+    },
+    {
+        "Entity": "Bhutan",
+        "Country": "不丹"
+    },
+    {
+        "Entity": "Bolivia",
+        "Country": "玻利維亞"
+    },
+    {
+        "Entity": "Bosnia and Herzegovina",
+        "Country": "波士尼亞與赫塞哥維納"
+    },
+    {
+        "Entity": "Botswana",
+        "Country": "波札那"
+    },
+    {
+        "Entity": "Brazil",
+        "Country": "巴西"
+    },
+    {
+        "Entity": "Bulgaria",
+        "Country": "保加利亞"
+    },
+    {
+        "Entity": "Burkina Faso",
+        "Country": "布吉納法索"
+    },
+    {
+        "Entity": "Burundi",
+        "Country": "蒲隆地"
+    },
+    {
+        "Entity": "Cambodia",
+        "Country": "柬埔寨"
+    },
+    {
+        "Entity": "Cameroon",
+        "Country": "喀麥隆"
+    },
+    {
+        "Entity": "Canada",
+        "Country": "加拿大"
+    },
+    {
+        "Entity": "Cape Verde",
+        "Country": "維德角"
+    },
+    {
+        "Entity": "Central African Republic",
+        "Country": "中非共和國"
+    },
+    {
+        "Entity": "Chad",
+        "Country": "查德"
+    },
+    {
+        "Entity": "Chile",
+        "Country": "智利"
+    },
+    {
+        "Entity": "China",
+        "Country": "中國"
+    },
+    {
+        "Entity": "Colombia",
+        "Country": "哥倫比亞"
+    },
+    {
+        "Entity": "Comoros",
+        "Country": "葛摩"
+    },
+    {
+        "Entity": "Congo",
+        "Country": "剛果"
+    },
+    {
+        "Entity": "Costa Rica",
+        "Country": "哥斯大黎加"
+    },
+    {
+        "Entity": "Cote d'Ivoire",
+        "Country": "象牙海岸"
+    },
+    {
+        "Entity": "Croatia",
+        "Country": "克羅埃西亞"
+    },
+    {
+        "Entity": "Cuba",
+        "Country": "古巴"
+    },
+    {
+        "Entity": "Cyprus",
+        "Country": "賽普勒斯"
+    },
+    {
+        "Entity": "Czechia",
+        "Country": "捷克"
+    },
+    {
+        "Entity": "Democratic Republic of Congo",
+        "Country": "剛果民主共和國"
+    },
+    {
+        "Entity": "Denmark",
+        "Country": "丹麥"
+    },
+    {
+        "Entity": "Djibouti",
+        "Country": "吉布地"
+    },
+    {
+        "Entity": "Dominican Republic",
+        "Country": "多明尼加共和國"
+    },
+    {
+        "Entity": "East Timor",
+        "Country": "東帝汶"
+    },
+    {
+        "Entity": "Ecuador",
+        "Country": "厄瓜多"
+    },
+    {
+        "Entity": "Egypt",
+        "Country": "埃及"
+    },
+    {
+        "Entity": "El Salvador",
+        "Country": "薩爾瓦多"
+    },
+    {
+        "Entity": "Equatorial Guinea",
+        "Country": "赤道幾內亞"
+    },
+    {
+        "Entity": "Eritrea",
+        "Country": "厄利垂亞"
+    },
+    {
+        "Entity": "Estonia",
+        "Country": "愛沙尼亞"
+    },
+    {
+        "Entity": "Eswatini",
+        "Country": "史瓦帝尼"
+    },
+    {
+        "Entity": "Ethiopia",
+        "Country": "衣索比亞"
+    },
+    {
+        "Entity": "Europe",
+        "Country": "歐洲"
+    },
+    {
+        "Entity": "Fiji",
+        "Country": "斐濟"
+    },
+    {
+        "Entity": "Finland",
+        "Country": "芬蘭"
+    },
+    {
+        "Entity": "France",
+        "Country": "法國"
+    },
+    {
+        "Entity": "Gabon",
+        "Country": "加彭"
+    },
+    {
+        "Entity": "Gambia",
+        "Country": "甘比亞"
+    },
+    {
+        "Entity": "Georgia",
+        "Country": "喬治亞"
+    },
+    {
+        "Entity": "Germany",
+        "Country": "德國"
+    },
+    {
+        "Entity": "Ghana",
+        "Country": "迦納"
+    },
+    {
+        "Entity": "Greece",
+        "Country": "希臘"
+    },
+    {
+        "Entity": "Guatemala",
+        "Country": "瓜地馬拉"
+    },
+    {
+        "Entity": "Guinea",
+        "Country": "幾內亞"
+    },
+    {
+        "Entity": "Guinea-Bissau",
+        "Country": "幾內亞比索"
+    },
+    {
+        "Entity": "Guyana",
+        "Country": "蓋亞那"
+    },
+    {
+        "Entity": "Haiti",
+        "Country": "海地"
+    },
+    {
+        "Entity": "Honduras",
+        "Country": "宏都拉斯"
+    },
+    {
+        "Entity": "Hong Kong",
+        "Country": "香港"
+    },
+    {
+        "Entity": "Hungary",
+        "Country": "匈牙利"
+    },
+    {
+        "Entity": "Iceland",
+        "Country": "冰島"
+    },
+    {
+        "Entity": "India",
+        "Country": "印度"
+    },
+    {
+        "Entity": "Indonesia",
+        "Country": "印尼"
+    },
+    {
+        "Entity": "Iran",
+        "Country": "伊朗"
+    },
+    {
+        "Entity": "Iraq",
+        "Country": "伊拉克"
+    },
+    {
+        "Entity": "Ireland",
+        "Country": "愛爾蘭"
+    },
+    {
+        "Entity": "Israel",
+        "Country": "以色列"
+    },
+    {
+        "Entity": "Italy",
+        "Country": "義大利"
+    },
+    {
+        "Entity": "Jamaica",
+        "Country": "牙買加"
+    },
+    {
+        "Entity": "Japan",
+        "Country": "日本"
+    },
+    {
+        "Entity": "Jordan",
+        "Country": "約旦"
+    },
+    {
+        "Entity": "Kazakhstan",
+        "Country": "哈薩克"
+    },
+    {
+        "Entity": "Kenya",
+        "Country": "肯亞"
+    },
+    {
+        "Entity": "Kuwait",
+        "Country": "科威特"
+    },
+    {
+        "Entity": "Kyrgyzstan",
+        "Country": "吉爾吉斯"
+    },
+    {
+        "Entity": "Laos",
+        "Country": "寮國"
+    },
+    {
+        "Entity": "Latvia",
+        "Country": "拉脫維亞"
+    },
+    {
+        "Entity": "Lebanon",
+        "Country": "黎巴嫩"
+    },
+    {
+        "Entity": "Lesotho",
+        "Country": "賴索托"
+    },
+    {
+        "Entity": "Liberia",
+        "Country": "賴比瑞亞"
+    },
+    {
+        "Entity": "Libya",
+        "Country": "利比亞"
+    },
+    {
+        "Entity": "Lithuania",
+        "Country": "立陶宛"
+    },
+    {
+        "Entity": "Luxembourg",
+        "Country": "盧森堡"
+    },
+    {
+        "Entity": "Madagascar",
+        "Country": "馬達加斯加"
+    },
+    {
+        "Entity": "Malawi",
+        "Country": "馬拉威"
+    },
+    {
+        "Entity": "Malaysia",
+        "Country": "馬來西亞"
+    },
+    {
+        "Entity": "Mali",
+        "Country": "馬利"
+    },
+    {
+        "Entity": "Malta",
+        "Country": "馬爾他"
+    },
+    {
+        "Entity": "Mauritania",
+        "Country": "茅利塔尼亞"
+    },
+    {
+        "Entity": "Mauritius",
+        "Country": "模里西斯"
+    },
+    {
+        "Entity": "Mexico",
+        "Country": "墨西哥"
+    },
+    {
+        "Entity": "Moldova",
+        "Country": "摩爾多瓦"
+    },
+    {
+        "Entity": "Mongolia",
+        "Country": "蒙古"
+    },
+    {
+        "Entity": "Montenegro",
+        "Country": "蒙特內哥羅"
+    },
+    {
+        "Entity": "Morocco",
+        "Country": "摩洛哥"
+    },
+    {
+        "Entity": "Mozambique",
+        "Country": "莫三比克"
+    },
+    {
+        "Entity": "Myanmar",
+        "Country": "緬甸"
+    },
+    {
+        "Entity": "Namibia",
+        "Country": "納米比亞"
+    },
+    {
+        "Entity": "Nepal",
+        "Country": "尼泊爾"
+    },
+    {
+        "Entity": "Netherlands",
+        "Country": "荷蘭"
+    },
+    {
+        "Entity": "New Zealand",
+        "Country": "紐西蘭"
+    },
+    {
+        "Entity": "Nicaragua",
+        "Country": "尼加拉瓜"
+    },
+    {
+        "Entity": "Niger",
+        "Country": "尼日"
+    },
+    {
+        "Entity": "Nigeria",
+        "Country": "奈及利亞"
+    },
+    {
+        "Entity": "North America",
+        "Country": "北美洲"
+    },
+    {
+        "Entity": "North Korea",
+        "Country": "北韓"
+    },
+    {
+        "Entity": "North Macedonia",
+        "Country": "北馬其頓"
+    },
+    {
+        "Entity": "Norway",
+        "Country": "挪威"
+    },
+    {
+        "Entity": "Oceania",
+        "Country": "大洋洲"
+    },
+    {
+        "Entity": "Oman",
+        "Country": "阿曼"
+    },
+    {
+        "Entity": "Pakistan",
+        "Country": "巴基斯坦"
+    },
+    {
+        "Entity": "Palestine",
+        "Country": "巴勒斯坦"
+    },
+    {
+        "Entity": "Panama",
+        "Country": "巴拿馬"
+    },
+    {
+        "Entity": "Papua New Guinea",
+        "Country": "巴布亞紐幾內亞"
+    },
+    {
+        "Entity": "Paraguay",
+        "Country": "巴拉圭"
+    },
+    {
+        "Entity": "Peru",
+        "Country": "秘魯"
+    },
+    {
+        "Entity": "Philippines",
+        "Country": "菲律賓"
+    },
+    {
+        "Entity": "Poland",
+        "Country": "波蘭"
+    },
+    {
+        "Entity": "Portugal",
+        "Country": "葡萄牙"
+    },
+    {
+        "Entity": "Qatar",
+        "Country": "卡達"
+    },
+    {
+        "Entity": "Romania",
+        "Country": "羅馬尼亞"
+    },
+    {
+        "Entity": "Russia",
+        "Country": "俄羅斯"
+    },
+    {
+        "Entity": "Rwanda",
+        "Country": "盧安達"
+    },
+    {
+        "Entity": "Saudi Arabia",
+        "Country": "沙烏地阿拉伯"
+    },
+    {
+        "Entity": "Senegal",
+        "Country": "塞內加爾"
+    },
+    {
+        "Entity": "Serbia",
+        "Country": "塞爾維亞"
+    },
+    {
+        "Entity": "Sierra Leone",
+        "Country": "獅子山"
+    },
+    {
+        "Entity": "Singapore",
+        "Country": "新加坡"
+    },
+    {
+        "Entity": "Slovakia",
+        "Country": "斯洛伐克"
+    },
+    {
+        "Entity": "Slovenia",
+        "Country": "斯洛維尼亞"
+    },
+    {
+        "Entity": "South Africa",
+        "Country": "南非"
+    },
+    {
+        "Entity": "South America",
+        "Country": "南美洲"
+    },
+    {
+        "Entity": "South Korea",
+        "Country": "南韓"
+    },
+    {
+        "Entity": "Spain",
+        "Country": "西班牙"
+    },
+    {
+        "Entity": "Sri Lanka",
+        "Country": "斯里蘭卡"
+    },
+    {
+        "Entity": "Sudan",
+        "Country": "蘇丹"
+    },
+    {
+        "Entity": "Suriname",
+        "Country": "蘇利南"
+    },
+    {
+        "Entity": "Sweden",
+        "Country": "瑞典"
+    },
+    {
+        "Entity": "Switzerland",
+        "Country": "瑞士"
+    },
+    {
+        "Entity": "Syria",
+        "Country": "敘利亞"
+    },
+    {
+        "Entity": "R.O.C (Taiwan)",
+        "Country": "中華民國（臺灣）"
+    },
+    {
+        "Entity": "Tajikistan",
+        "Country": "塔吉克"
+    },
+    {
+        "Entity": "Tanzania",
+        "Country": "坦尚尼亞"
+    },
+    {
+        "Entity": "Thailand",
+        "Country": "泰國"
+    },
+    {
+        "Entity": "Togo",
+        "Country": "多哥"
+    },
+    {
+        "Entity": "Trinidad and Tobago",
+        "Country": "千里達及托巴哥"
+    },
+    {
+        "Entity": "Tunisia",
+        "Country": "突尼西亞"
+    },
+    {
+        "Entity": "Turkey",
+        "Country": "土耳其"
+    },
+    {
+        "Entity": "Turkmenistan",
+        "Country": "土庫曼"
+    },
+    {
+        "Entity": "Uganda",
+        "Country": "烏干達"
+    },
+    {
+        "Entity": "Ukraine",
+        "Country": "烏克蘭"
+    },
+    {
+        "Entity": "United Arab Emirates",
+        "Country": "阿拉伯聯合大公國"
+    },
+    {
+        "Entity": "United Kingdom",
+        "Country": "英國"
+    },
+    {
+        "Entity": "United States",
+        "Country": "美國"
+    },
+    {
+        "Entity": "Uruguay",
+        "Country": "烏拉圭"
+    },
+    {
+        "Entity": "Uzbekistan",
+        "Country": "烏茲別克"
+    },
+    {
+        "Entity": "Venezuela",
+        "Country": "委內瑞拉"
+    },
+    {
+        "Entity": "Vietnam",
+        "Country": "越南"
+    },
+    {
+        "Entity": "World",
+        "Country": "世界"
+    },
+    {
+        "Entity": "Yemen",
+        "Country": "葉門"
+    },
+    {
+        "Entity": "Zambia",
+        "Country": "尚比亞"
+    },
+    {
+        "Entity": "Zimbabwe",
+        "Country": "辛巴威"
+    },
+    {
+        "Entity": "Kosovo",
+        "Country": "科索沃"
+    },
+    {
+        "Entity": "Somaliland",
+        "Country": "索馬利蘭"
+    },
+    {
+        "Entity": "Antarctica",
+        "Country": "南極洲"
+    },
+    {
+        "Entity": "Fr. S. Antarctic Lands",
+        "Country": "法屬南部和南極領地"
+    },
+    {
+        "Entity": "Bahamas",
+        "Country": "巴哈馬"
+    },
+    {
+        "Entity": "Belize",
+        "Country": "貝里斯"
+    },
+    {
+        "Entity": "Brunei",
+        "Country": "汶萊"
+    },
+    {
+        "Entity": "W. Sahara",
+        "Country": "西撒哈拉"
+    },
+    {
+        "Entity": "Falkland Is.",
+        "Country": "福克蘭群島"
+    },
+    {
+        "Entity": "Greenland",
+        "Country": "格陵蘭"
+    },
+    {
+        "Entity": "New Caledonia",
+        "Country": "新喀里多尼亞"
+    },
+    {
+        "Entity": "Puerto Rico",
+        "Country": "波多黎各"
+    },
+    {
+        "Entity": "Solomon Is.",
+        "Country": "索羅門群島"
+    },
+    {
+        "Entity": "Somalia",
+        "Country": "索馬利亞"
+    },
+    {
+        "Entity": "S. Sudan",
+        "Country": "南蘇丹"
+    },
+    {
+        "Entity": "Vanuatu",
+        "Country": "萬那杜"
+    }
+]

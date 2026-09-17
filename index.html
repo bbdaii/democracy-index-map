@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>民主指數互動地圖 | Democracy Index Map</title>
+<meta name="description" content="以台灣為視角的世界地圖互動裝置,整合民主指數、新聞自由指數、經濟自由度指數、全球自由度調查四項國際評比,原始為總統府展場觸控裝置作品。">
+<link rel="icon"
+  href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%97%BA%EF%B8%8F%3C/text%3E%3C/svg%3E">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="民主指數互動地圖">
+<meta property="og:description" content="以台灣為視角的世界地圖互動裝置,整合民主指數、新聞自由指數、經濟自由度指數、全球自由度調查四項國際評比。">
+<meta property="og:image" content="/og-image.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="民主指數互動地圖">
+<meta name="twitter:description" content="以台灣為視角的世界地圖互動裝置,整合民主指數、新聞自由指數、經濟自由度指數、全球自由度調查四項國際評比。">
+<meta name="twitter:image" content="/og-image.jpg">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@700;900&display=swap" rel="stylesheet">
+
+<!-- 地圖本體樣式 -->
+<link rel="stylesheet" href="src/assets/main.css">
+
+<style>
+  html, body {
+    margin: 0;
+    height: 100%;
+    background: #f4f4f2;
+    font-family: "PingFang TC", "Microsoft JhengHei", sans-serif;
+    overflow: hidden;
+  }
+
+  #page {
+    position: relative;
+    height: 100%;
+  }
+
+  #tv-stage {
+    position: absolute;
+    inset: 0;
+  }
+
+  #tv-stage canvas,
+  #tv-stage .css3d-root {
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+
+  /* CSS3DObject 產生的牆面文字牌 */
+  .plaque-el {
+    width: 2500px;
+    text-align: center;
+    pointer-events: none;
+  }
+
+  .plaque-el .caption {
+    font-size: 104px;
+    color: #262626;
+    letter-spacing: .02em;
+    font-family: "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", sans-serif;
+    font-weight: 900;
+    text-shadow:
+      1px 1px 0 #0b0b0b, 2px 2px 0 #0b0b0b, 3px 3px 0 #0b0b0b,
+      4px 4px 4px rgba(0, 0, 0, .3);
+  }
+
+  .plaque-el .hint {
+    margin-top: 14px;
+    font-size: 44px;
+    color: #262626;
+    font-family: "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", sans-serif;
+    font-weight: 900;
+    text-shadow:
+      1px 1px 0 #0b0b0b, 2px 2px 0 #0b0b0b,
+      3px 3px 3px rgba(0, 0, 0, .3);
+  }
+
+  /* CSS3DObject 產生的螢幕:直接包住地圖本體的 DOM,不透過 iframe */
+  #map-root {
+    width: 1920px;
+    height: 1080px;
+    background: #000;
+    overflow: hidden;
+    border-radius: 4px;
+    box-shadow: 0 0 0 2px rgba(255,255,255,.05) inset;
+  }
+</style>
+</head>
+<body>
+  <div id="page">
+    <div id="tv-stage"></div>
+  </div>
+
+  <!-- ===== 以下是地圖本體的 DOM,會被包成 3D 場景裡的螢幕 ===== -->
+  <div id="map-root">
+    <audio id="clickSound" src="./static/audio/sound-2.m4a"></audio>
+    <div class="bg-img">
+      <img src="./static/bg.jpg" alt="">
+    </div>
+    <div id="secret-button" style="position: absolute; top: 0; left: 0; width: 300px; height: 100px; z-index: 100;"></div>
+    <div class="container">
+      <!-- header -->
+      <div class="header-area">
+        <div class="logo">
+          <img id="logo-img" src="./static/logo/democracy.png" alt="">
+        </div>
+        <div class="description">
+          <p id="description-content">
+            經濟學人智庫的民主指數提供了 165 個獨立國家和兩個領土民主狀況的概況。這幾乎涵蓋了世界上的全部人口和世界上絕大多數國家（不包括微觀國家）。民主指數以 0-10
+            分制評分，以五個類別為基礎：選舉過程和多元化、政府運作、政治參與、政治文化和公民自由。根據這些類別中一系列指標的得分，每個國家都被分為四種政體類型之一：「完全民主」、「有缺陷的民主」、「混合政體」或「獨裁政體」。
+          </p>
+        </div>
+      </div>
+
+      <!-- main svg background -->
+      <main>
+        <div class="tw-info-area">
+          <div class="tw-info-area-top">
+            <span id="tw-info-year">2023</span>
+            <span id="tw-info-chinese">中華民國（臺灣）</span>
+            <span id="tw-info-english">R.O.C (Taiwan)</span>
+            <div class="tw-info-area-score">
+              <span id="tw-info-score">8.92</span>
+              <span id="tw-info-point">分</span>
+            </div>
+          </div>
+          <div id="dash-line"></div>
+        </div>
+        <div class="menu-area">
+          <div class="ranking-area">
+            <img class="ranking-img" src="./static/ranking.png" alt="">
+            <p class="ranking-year">2023</p>
+            <p class="ranking-tw">台灣排名第<span id="ranking">10</span>名</p>
+          </div>
+          <img class="active-img" src="./static/active.png" alt="">
+          <div class="menu-option" id="press">無國界記者<br>世界新聞自由指數
+            <span>Reporters without Borders/ <br>World Press Freedom Index</span>
+          </div>
+          <div class="menu-option" id="democracy">經濟學人資訊社：<br>⺠主指數
+            <span>Economist Intelligence Unit/ <br>Democracy Index</span>
+          </div>
+          <div class="menu-option" id="economic">傳統基⾦會：<br>經濟自由度指數
+            <span>Heritage Foundation/ <br>Index of Economic Freedom</span>
+          </div>
+          <div class="menu-option" id="freedom">自由之家：<br>全球自由度調查
+            <span>Freedom House/ <br>Freedom in World</span>
+          </div>
+        </div>
+      </main>
+
+      <!-- footer -->
+      <div class="footer-area">
+        <!-- year slider -->
+        <div class="slider-area">
+          <div class="slider-area-top">
+            <div class="slider-min">2006</div>
+            <div class="slider-max">2023</div>
+            <input type="range" name="mySlider" id=mySlider value="2023">
+            <img id="slider-img" src="./static/slider.png" alt="">
+            <label for="mySlider" id="mySliderLabel"></label>
+            <div id="idle-drag" style="z-index: 20;">
+              <img id="hand-drag-img" src="./static/hand2.png" alt="">
+            </div>
+          </div>
+        </div>
+        <!-- legend -->
+        <div class="legend-area">
+          <div class="legend-area-title"></div>
+          <div class="legend-area-top">
+            <div class="legend-no-data-rect"></div>
+            <span class="legend-no-data-text">N/A</span>
+            <div id="idle-click" style="z-index: 20;">
+              <img id="hand-click-img" src="./static/hand3.png" alt="">
+              <div id="hand-click-animation">
+                <span style="--i:0" class="hand-pulse"></span>
+                <span style="--i:1" class="hand-pulse"></span>
+                <span style="--i:2" class="hand-pulse"></span>
+                <span style="--i:3" class="hand-pulse"></span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="source-area">
+        <p id="source-text">無國界記者 / 世界新聞自由指數</p>
+      </div>
+
+      <!-- tool tip -->
+      <div class="tooltip">
+        <div class="tooltipTitleArea">
+          <span class="tooltiptext" id="tooltipYear">Year</span>
+          <span class="tooltiptext" id="tooltipCountry">國家</span>
+          <span class="tooltiptext" id="tooltipCountryEn">Country</span>
+        </div>
+        <div class="tooltipScoreArea">
+          <span class="tooltiptext" id="tooltipScore">Score</span>
+          <span class="tooltiptext" id="tooltipPoint">分</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="src/d3@7.js"></script>
+  <script src="src/topojson-client.min.js"></script>
+  <script src="src/app.js" type="module"></script>
+  <script src="src/setting.js"></script>
+  <!-- ===== 地圖本體 DOM 結束 ===== -->
+
+<script type="module">
+import * as THREE from 'three';
+import { CSS3DRenderer, CSS3DObject } from 'three/addons/renderers/CSS3DRenderer.js';
+import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
+
+const stage = document.getElementById('tv-stage');
+
+// ---- 電視尺寸(世界單位) ----
+const BEZEL = 0.4;
+const DEPTH = 0.6;
+const SCREEN_W = 16;
+const SCREEN_H = 9; // 剛好 16:9
+const TV_W = SCREEN_W + BEZEL * 2;
+const TV_H = SCREEN_H + BEZEL * 2;
+
+// ---- Scene / Camera ----
+const scene = new THREE.Scene();
+scene.background = new THREE.Color(0xf4f4f2);
+scene.fog = new THREE.Fog(0xf4f4f2, 26, 50);
+
+const camera = new THREE.PerspectiveCamera(24, stage.clientWidth / stage.clientHeight, 0.1, 100);
+camera.position.set(1.83, -0.14, 31.36);
+
+// ---- Lights(展間柔光) ----
+scene.add(new THREE.HemisphereLight(0xffffff, 0xd8d8d4, 1.0));
+const dirLight = new THREE.DirectionalLight(0xffffff, 0.85);
+dirLight.position.set(9, 15, 11);
+dirLight.castShadow = true;
+dirLight.shadow.mapSize.set(2048, 2048);
+dirLight.shadow.camera.left = -14;
+dirLight.shadow.camera.right = 14;
+dirLight.shadow.camera.top = 14;
+dirLight.shadow.camera.bottom = -14;
+dirLight.shadow.camera.near = 1;
+dirLight.shadow.camera.far = 40;
+dirLight.shadow.bias = -0.0015;
+scene.add(dirLight);
+const fillLight = new THREE.DirectionalLight(0xffffff, 0.25);
+fillLight.position.set(-8, 6, 6);
+scene.add(fillLight);
+
+// ---- 展間白牆(螢幕直接壁掛,不用地板) ----
+const wallMat = new THREE.MeshStandardMaterial({ color: 0xf1f1ef, roughness: 1 });
+const wall = new THREE.Mesh(new THREE.PlaneGeometry(70, 45), wallMat);
+const WALL_Z = -DEPTH / 2 - 0.35;
+wall.position.set(0, 0, WALL_Z);
+wall.receiveShadow = true;
+scene.add(wall);
+
+// ---- 電視本體(WebGL) ----
+const TV_Y = -0.35; // 整台電視(連同文字牌)往上一點
+
+const bodyMat = new THREE.MeshStandardMaterial({ color: 0x222226, roughness: 0.55, metalness: 0.3 });
+const body = new THREE.Mesh(new THREE.BoxGeometry(TV_W, TV_H, DEPTH), bodyMat);
+body.position.y = TV_Y;
+body.castShadow = true;
+scene.add(body);
+
+// 攝影機孔裝飾
+const camDot = new THREE.Mesh(
+  new THREE.CircleGeometry(0.05, 16),
+  new THREE.MeshStandardMaterial({ color: 0x0a0a0b })
+);
+camDot.position.set(0, TV_Y + TV_H / 2 - 0.18, DEPTH / 2 + 0.001);
+scene.add(camDot);
+
+// ---- 螢幕(CSS3D,直接把地圖本體的 DOM 包成 3D 物件,不透過 iframe) ----
+const mapRoot = document.getElementById('map-root');
+mapRoot.style.pointerEvents = 'auto';
+
+const screenObj = new CSS3DObject(mapRoot);
+const scale = SCREEN_W / 1920;
+screenObj.scale.set(scale, scale, scale);
+screenObj.position.set(0, TV_Y, DEPTH / 2 + 0.02);
+scene.add(screenObj);
+
+// ---- 牆上文字牌(貼在 3D 場景裡,跟著視角有透視) ----
+const plaqueEl = document.createElement('div');
+plaqueEl.className = 'plaque-el';
+plaqueEl.innerHTML =
+  '<div class="caption">總統府《民主方舟》民主指數互動地圖</div>' +
+  '<div class="hint">拖曳螢幕外可旋轉視角、在螢幕上可操作地圖</div>';
+
+const plaqueObj = new CSS3DObject(plaqueEl);
+const plaqueScale = 9.3 / 1900; // 固定縮放比例(維持先前調好的厚度),容器加寬只為了不換行
+plaqueObj.scale.set(plaqueScale, plaqueScale, plaqueScale);
+const PLAQUE_Y = TV_Y + TV_H / 2 + 0.8;
+const PLAQUE_Z = WALL_Z + 0.08; // 貼近牆面,留一點點距離才投得出陰影
+plaqueObj.position.set(0, PLAQUE_Y, PLAQUE_Z);
+scene.add(plaqueObj);
+
+// 文字牌的隱形投影板(WebGL,看不到本體但會在牆上投出柔和陰影)
+const plaqueShadowMat = new THREE.MeshStandardMaterial({ colorWrite: false, roughness: 1 });
+const plaqueShadow = new THREE.Mesh(new THREE.PlaneGeometry(10, 1.15), plaqueShadowMat);
+plaqueShadow.position.set(0, PLAQUE_Y, PLAQUE_Z);
+plaqueShadow.castShadow = true;
+scene.add(plaqueShadow);
+
+// ---- WebGL renderer ----
+const glRenderer = new THREE.WebGLRenderer({ antialias: true });
+glRenderer.setPixelRatio(window.devicePixelRatio);
+glRenderer.setSize(stage.clientWidth, stage.clientHeight);
+glRenderer.shadowMap.enabled = true;
+glRenderer.shadowMap.type = THREE.PCFSoftShadowMap;
+stage.appendChild(glRenderer.domElement);
+
+// ---- CSS3D renderer ----
+const cssRenderer = new CSS3DRenderer();
+cssRenderer.setSize(stage.clientWidth, stage.clientHeight);
+cssRenderer.domElement.classList.add('css3d-root');
+// 整層預設不吃事件,只有地圖本體吃事件,背景才能拖曳轉視角
+cssRenderer.domElement.style.pointerEvents = 'none';
+stage.appendChild(cssRenderer.domElement);
+
+// ---- OrbitControls(掛在最底層 WebGL canvas 上) ----
+const controls = new OrbitControls(camera, glRenderer.domElement);
+controls.target.set(0, 0, 0);
+controls.enableDamping = true;
+controls.dampingFactor = 0.08;
+controls.enablePan = false;
+controls.rotateSpeed = 0.5;
+controls.minDistance = 21;
+controls.maxDistance = 42;
+controls.minPolarAngle = Math.PI / 2 - 0.22;
+controls.maxPolarAngle = Math.PI / 2 + 0.26;
+controls.minAzimuthAngle = -Math.PI / 10; // 約 -18deg
+controls.maxAzimuthAngle = Math.PI / 10;  // 約 +18deg
+controls.update();
+
+function onResize() {
+  const w = stage.clientWidth, h = stage.clientHeight;
+  camera.aspect = w / h;
+  camera.updateProjectionMatrix();
+  glRenderer.setSize(w, h);
+  cssRenderer.setSize(w, h);
+}
+window.addEventListener('resize', onResize);
+
+function animate() {
+  requestAnimationFrame(animate);
+  controls.update();
+  glRenderer.render(scene, camera);
+  cssRenderer.render(scene, camera);
+}
+animate();
+</script>
+</body>
+</html>
