@@ -80,6 +80,7 @@
   }
 
   /* CSS3DObject 產生的螢幕:直接包住地圖本體的 DOM,不透過 iframe */
+  /* 一開始先藏起來,避免 JS 把它包進 3D 場景前,以原始 1920x1080 平面樣式閃一下(FOUC) */
   #map-root {
     width: 1920px;
     height: 1080px;
@@ -87,6 +88,7 @@
     overflow: hidden;
     border-radius: 4px;
     box-shadow: 0 0 0 2px rgba(255,255,255,.05) inset;
+    visibility: hidden;
   }
 </style>
 </head>
@@ -353,6 +355,12 @@ function animate() {
   glRenderer.render(scene, camera);
   cssRenderer.render(scene, camera);
 }
+
+// 先手動 render 一次,確定 3D transform 真的套用到 mapRoot 上,再顯示,避免閃出原始平面版面
+glRenderer.render(scene, camera);
+cssRenderer.render(scene, camera);
+mapRoot.style.visibility = 'visible';
+
 animate();
 </script>
 </body>
